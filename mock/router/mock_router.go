@@ -5,7 +5,6 @@ package mock_router
 
 import (
 	gomock "github.com/golang/mock/gomock"
-	mux "github.com/gorilla/mux"
 	http "net/http"
 )
 
@@ -30,9 +29,9 @@ func (_m *MockRouter) EXPECT() *_MockRouterRecorder {
 	return _m.recorder
 }
 
-func (_m *MockRouter) HandleFunc(path string, f func(http.ResponseWriter, *http.Request)) *mux.Route {
+func (_m *MockRouter) HandleFunc(path string, f func(http.ResponseWriter, *http.Request)) interface{} {
 	ret := _m.ctrl.Call(_m, "HandleFunc", path, f)
-	ret0, _ := ret[0].(*mux.Route)
+	ret0, _ := ret[0].(interface{})
 	return ret0
 }
 

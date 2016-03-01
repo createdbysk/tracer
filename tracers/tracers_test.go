@@ -4,8 +4,7 @@ import (
 	"testing"
 
 	"github.com/golang/mock/gomock"
-
-	"github.com/tracer/mock"
+	"github.com/tracer/mock/router"
 )
 
 func TestRegister(t *testing.T) {
