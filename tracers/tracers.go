@@ -1,17 +1,23 @@
 package tracers
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 
-	"github.com/tracer/router"
+	"github.com/tracer/mux"
 )
 
 // Register registers handlers for routes.
-func Register(r router.Router) {
-	r.HandleFunc("/tracers/", handleTracers)
+func Register(r mux.Router) {
+	r.POST("/tracers", handleTracers)
 }
 
 func handleTracers(responseWriter http.ResponseWriter, request *http.Request) {
-	fmt.Println("handleTracers called with ", request)
+	log.Print("handleTracers called with ", request)
+	//if request.Method == "POST" {
+	response := ([]byte)("This is a test.")
+	responseWriter.Write(response)
+	//} else {
+	//	http.Error(responseWriter, "Not Allowed", http.StatusMethodNotAllowed)
+	//}
 }
