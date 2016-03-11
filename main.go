@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"fmt"
 
 	"github.com/gorilla/mux"
 	"github.com/tracer/router/adapter"
@@ -16,5 +17,7 @@ func main() {
 	adapted := adapter.GorillaMuxRouter{router}
 	tracers.Register(adapted)
 
-	log.Fatal(http.ListenAndServe(":8080", router))
+	port := 8080
+	fmt.Printf(":%d", port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), router))
 }
