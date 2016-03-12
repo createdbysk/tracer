@@ -14,5 +14,6 @@ func main() {
 	tracers.Register(router)
 
 	port := 8080
+	fmt.Print("localhost:%d POST /tracers", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), router))
 }

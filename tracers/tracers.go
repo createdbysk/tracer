@@ -3,6 +3,7 @@ package tracers
 import (
 	"log"
 	"net/http"
+	"strings"
 
 	"github.com/tracer/mux"
 )
@@ -14,10 +15,12 @@ func Register(r mux.Router) {
 
 func handleTracers(responseWriter http.ResponseWriter, request *http.Request) {
 	log.Print("handleTracers called with ", request)
-	//if request.Method == "POST" {
-	response := ([]byte)("This is a test.")
-	responseWriter.Write(response)
-	//} else {
-	//	http.Error(responseWriter, "Not Allowed", http.StatusMethodNotAllowed)
-	//}
+	u := request.URL
+	u.Host = request.Host
+	u.Scheme = "http"
+	if !strings.HasSuffix(u.Path, "/") {
+		u.Path += "/"
+	}
+	u.Path += "0"
+	responseWriter.Header().Set("Location", u.String())
 }

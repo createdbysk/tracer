@@ -18,6 +18,11 @@ Use the tracer API to trace an entity for the lifetime of its existence. Just li
 * [mock](https://github.com/golang/mock)
 * [mux](http://www.gorillatoolkit.org/pkg/mux) from the Gorilla Web Toolkit.
 
+## REST
+* http://thenewstack.io/make-a-restful-json-api-go/
+* http://grokbase.com/t/gg/golang-nuts/144j758twr/go-nuts-is-the-full-absolute-url-of-an-http-request-directly-available
+* Set Headers including Access-Control-Allow-Origin - http://stackoverflow.com/questions/12830095/setting-http-headers-in-golang
+
 # TODO
 1. Create a makefile or equivalent.
     * Determine how to run mockgen automatically.
