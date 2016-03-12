@@ -10,7 +10,7 @@ Use the tracer API to trace an entity for the lifetime of its existence. Just li
 * Follow instructions to install [mock](https://github.com/golang/mock) for GO.
 * Generate the mock route
       mkdir -p mock/mux
-      mockgen -source=mux/mux.go > mock/mux/mock_mux.go
+      mockgen -source=mux/router.go > mock/mux/mock_router.go
       go build
       go install
 
