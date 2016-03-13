@@ -1,4 +1,4 @@
-package tracers
+package metadata
 
 import (
 	"testing"
@@ -12,8 +12,6 @@ func TestRegister(t *testing.T) {
 	defer mockController.Finish()
 
 	mockRouter := mock_mux.NewMockRouter(mockController)
-	mockRouter.EXPECT().POST("/tracers", gomock.Any())
+	mockRouter.EXPECT().POST("/tracers/{id}/metadata", gomock.Any())
 	Register(mockRouter)
 }
-
-// TODO: Write test for handleTracers
