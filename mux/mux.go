@@ -1,4 +1,4 @@
-// This file provides an adapter to Gorilla mux to eliminate the tight coupling
+// Package mux provides an adapter to Gorilla mux to eliminate the tight coupling
 // with Gorilla mux.
 package mux
 
@@ -22,6 +22,11 @@ func NewRouter() Router {
 // POST implements the POST function in the Router interface.
 func (r router) POST(path string, f func(http.ResponseWriter, *http.Request)) {
 	r.GorillaRouter.HandleFunc(path, f).Methods("POST")
+}
+
+// Vars implements the Vars() function in the Router interface.
+func (r router) Vars(request *http.Request) map[string]string {
+	return mux.Vars(request)
 }
 
 // ServeHTTP implements the ServeHTTP function in the Router interface

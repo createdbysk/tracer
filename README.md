@@ -11,6 +11,8 @@ Use the tracer API to trace an entity for the lifetime of its existence. Just li
 * Generate the mock route
       mkdir -p mock/mux
       mockgen -source=mux/router.go > mock/mux/mock_router.go
+      mkdir -p mock/tracers/metadata
+      mockgen -source=tracers/metadata/storage.go > mock/tracers/metadata/mock_storage.go
       go build
       go install
 
@@ -22,6 +24,9 @@ Use the tracer API to trace an entity for the lifetime of its existence. Just li
 * http://thenewstack.io/make-a-restful-json-api-go/
 * http://grokbase.com/t/gg/golang-nuts/144j758twr/go-nuts-is-the-full-absolute-url-of-an-http-request-directly-available
 * Set Headers including Access-Control-Allow-Origin - http://stackoverflow.com/questions/12830095/setting-http-headers-in-golang
+
+## Testing
+* http://nathanleclaire.com/blog/2015/10/10/interfaces-and-composition-for-effective-unit-testing-in-golang/
 
 # TODO
 1. Create a makefile or equivalent.
